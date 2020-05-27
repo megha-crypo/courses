@@ -1,0 +1,257 @@
+{
+  "intents": [
+    {
+      "intent": "branch",
+      "examples": [
+        {
+          "text": "1"
+        },
+        {
+          "text": "CSE"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "cou",
+      "examples": [
+        {
+          "text": "B.Tech"
+        },
+        {
+          "text": "1"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "rg",
+      "examples": [
+        {
+          "text": "B.Tech"
+        },
+        {
+          "text": "2"
+        },
+        {
+          "text": "1"
+        },
+        {
+          "text": "B.E"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "choice",
+      "examples": [
+        {
+          "text": "Yes"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "chcllg",
+      "examples": [
+        {
+          "text": "BIET"
+        },
+        {
+          "text": "1"
+        },
+        {
+          "text": "2"
+        },
+        {
+          "text": "CMR"
+        },
+        {
+          "text": "Bharat Institute o Engineering and Technology"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "branch",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Welcome to Computer Science and Engineering stream. This course is of 4 year where student will learn various programming languages that is the demand of almost all pioneer software companies. In this department we have excellent team of faculty members who all are very experienced and masters in their fields. For more information please ring on \nContact No-  (08414) 252313, 252399,252647\nEmail-id - info@biet.ac.in\n"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_9_1590580915080",
+      "conditions": "#branch",
+      "dialog_node": "node_10_1590580947592"
+    },
+    {
+      "type": "standard",
+      "title": "ch1",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Bharat Institute of Engineering & Technology (BIET), established in 2001 by Chinta Reddy Madhusudhan Reddy Educational Society (CRMR) under the leadership of Sri Ch. Venugopal Reddy, an eminent educationist with a social conscience and commitment. It has grown in its size and stature over the years, from an initial intake of 240 to 1308 students. BIET is one of the largest Engineering Colleges in Telangana. It offers 6 B.Tech programs, 8 M.Tech programs and 1 MBA program. With consistent and excellent academic performance of students in the University examinations, the Institute has endeared itself to many students and parents. Bharat Institute of Engineering & Technology (BIET) boasts of well experienced and highly qualified faculty, State-of-the-art Infrastructure, regular placements and well equipped.\nThe programs are\n1.\tB.Tech\n2.\tM.Tech\n3.\tMBA\nChoose any one option"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_7_1590580400066",
+      "conditions": "#chcllg",
+      "dialog_node": "node_9_1590580497051"
+    },
+    {
+      "type": "standard",
+      "title": "no",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Thanks For Visiting"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "Welcome",
+      "conditions": "#choice",
+      "dialog_node": "node_6_1590581051156",
+      "previous_sibling": "node_7_1590580400066"
+    },
+    {
+      "type": "standard",
+      "title": "y",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Thanks for showing your interest. Here is the list of various popular colleges\n1.\tBIET\n2.\tCMR\n3.\tVignan\n4.\tGNI\nChoose any one option for various programs they offers\n"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "Welcome",
+      "conditions": "#choice",
+      "dialog_node": "node_7_1590580400066"
+    },
+    {
+      "type": "standard",
+      "title": "bt1",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Thankks for choosing B.Tech Program. Here we provide various specialization under B.Tech\n1.\tCSE\n2.\tECE\n3.\tEEE\n4.\tMECH\n5.\tCIVIL\n6.\tIT\nChoose any one option\n"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_9_1590580497051",
+      "conditions": "#cou",
+      "dialog_node": "node_9_1590580915080"
+    },
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I didn't understand. You can try rephrasing."
+              },
+              {
+                "text": "Can you reword your statement? I'm not understanding."
+              },
+              {
+                "text": "I didn't get your meaning."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "Welcome",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hello I can help you in in finding various popular colleges list along with various programs they offer in various streams. Do you want a survey for the same? (Yes/No)"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "off_topic": {
+      "enabled": true
+    },
+    "disambiguation": {
+      "prompt": "Did you mean:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "None of the above"
+    },
+    "system_entities": {
+      "enabled": true
+    },
+    "human_agent_assist": {
+      "prompt": "Did you mean:"
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "name": "programs",
+  "language": "en",
+  "description": ""
+}
